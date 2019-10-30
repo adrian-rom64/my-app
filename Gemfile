@@ -54,7 +54,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "slim", "~> 4.0"
-
 gem "devise", "~> 4.7"
-
-gem "slim-rails", "~> 3.2"
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+gem "faker", "~> 2.6"
+gem "hirb", "~> 0.7.3"
+gem "twitter-bootstrap-rails", "~> 3.2"

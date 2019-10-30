@@ -1,1 +1,19 @@
-@import './bootstrap.scss'
+@import './bootstrap.scss';
+
+.form-container {
+  width: 400px;
+  border: 2px solid #eee;
+  margin: auto;
+  margin-top: 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.table-container {
+  width: 1600px;
+  border: 2px solid #eee;
+  margin: auto;
+  margin-top: 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
