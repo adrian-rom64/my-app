@@ -8,6 +8,7 @@
   <dd><%= @image.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:file) %>:</strong></dt>
   <dd><%= @image.file %></dd>
+  <%= image_tag @image.file.url %>
   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
   <dd><%= @image.user_id %></dd>
 </dl>
