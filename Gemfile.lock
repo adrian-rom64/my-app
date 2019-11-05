@@ -485,6 +485,7 @@ DEPENDENCIES
   devise (~> 4.7)
   faker (~> 2.6)
   fog
+  fog-aws (~> 3.5)
   hirb (~> 0.7.3)
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)

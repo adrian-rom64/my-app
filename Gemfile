@@ -66,3 +66,5 @@ gem 'fog'
 gem "faker", "~> 2.6"
 gem "hirb", "~> 0.7.3"
 gem "twitter-bootstrap-rails", "~> 3.2"
+
+gem "fog-aws", "~> 3.5"
