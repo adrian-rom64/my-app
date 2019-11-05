@@ -2,9 +2,9 @@ if Rails.env.production?
   CarrierWave.configure do |config|
     config.fog_credentials = {
       provider: 'AWS',
-      aws_access_key_id: ENV['S3_ACCESS_KEY'],
-      aws_secret_access_key: ENV['S3_SECRET_KEY']
+      aws_access_key_id: 'AKIAURURPILK2TSYM6GB',
+      aws_secret_access_key: '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'
     }
-    config.fog_directory = ENV['S3_BUCKET']
+    config.fog_directory = ENV['adrian-rails-app-2019-bucket']
   end
 end
