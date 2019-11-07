@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   root 'pages#home'
 
-  get 'payments/new'
+  get 'payments/new', as: :new_payment
   get 'payments/continue'
   get 'payments/success'
   get 'payments/cancel'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'payments', to: 'payments#index', as: :payments
+  get 'payments/:id', to: 'payments#pay', as: :payment
 end

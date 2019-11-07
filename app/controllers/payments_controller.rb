@@ -1,9 +1,50 @@
 class PaymentsController < ApplicationController
-  before_action :set_payment, only: %i[continue cancel success]
+
+  def index
+    @payments = Payment.all.reverse_order!
+  end
 
   def new
     @payment = Payment.create(user: current_user, status: 'registered')
-    Stripe.api_key = 'sk_live_sCnsjfNDbXNPYqticDJfg8AK00uUnmNgkY'
+    payment_handler(@payment)
+  end
+
+  def pay
+    @payment = Payment.find(params[:id])
+    payment_handler(@payment)
+  end
+
+  def continue
+    @payment = Payment.find_by!(payment_id: params[:session_id])
+    if Rails.env.production?
+      @key = ENV['STRIPE_PUBLIC']
+    else
+      @key = 'pk_test_6HSBmz2aEV8EbhsqzGgkVG0k001hPm9fuI'
+    end
+    @payment.update(status: 'pending')
+  end
+
+  def cancel
+    @payment = Payment.find(params[:id])
+    @payment.update(status: 'cancelled')
+    redirect_to payments_path
+  end
+
+  def success
+    @payment = Payment.find(params[:id])
+    @payment.update(status: 'success')
+    redirect_to payments_path
+  end
+
+  private
+
+  def payment_handler(payment)
+
+    if Rails.env.production?
+      Stripe.api_key = ENV['STRIPE_PRIVATE']
+    else
+      Stripe.api_key = 'sk_test_XoiD2AxrV2VH9M2OaolKSKxu00EE181vZS'
+    end
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
@@ -15,29 +56,12 @@ class PaymentsController < ApplicationController
         currency: 'usd',
         quantity: 1,
       }],
-      success_url: "http://localhost:3000/payments/success?session_id=#{@payment.payment_id}",
-      cancel_url: "http://localhost:3000/payments/cancel?session_id=#{@payment.payment_id}",
+      success_url: "http://localhost:3000/payments/success?id=#{payment.id}",
+      cancel_url: "http://localhost:3000/payments/cancel?id=#{payment.id}",
     )
 
-    @payment.update!(payment_id: session.id)
+    payment.update!(payment_id: session.id)
     redirect_to "http://localhost:3000/payments/continue?session_id=#{session.id}"
   end
 
-  def continue
-    @payment.update(status: 'pending')
-  end
-
-  def cancel
-    @payment.update(status: 'cancelled')
-  end
-
-  def success
-    @payment.update(status: 'success')
-  end
-
-  private
-
-  def set_payment
-    @payment = Payment.find_by!(payment_id: params[:session_id])
-  end
 end

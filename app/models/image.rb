@@ -9,5 +9,6 @@ class Image < ApplicationRecord
     if file.size > 5.megabytes
       errors.add(:file, 'should be less than 5MB')
     end
+  end
 
 end
