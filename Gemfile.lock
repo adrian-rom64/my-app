@@ -95,6 +95,7 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dry-inflector (0.2.0)
+    encryption (1.1.8)
     erubi (1.9.0)
     excon (0.68.0)
     execjs (2.7.0)
@@ -432,6 +433,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.1)
+    stripe (5.7.1)
     temple (0.8.2)
     thor (0.20.3)
     thread_safe (0.3.6)
@@ -483,6 +485,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   devise (~> 4.7)
+  encryption (~> 1.1)
   faker (~> 2.6)
   fog
   fog-aws (~> 3.5)
@@ -499,6 +502,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4)
+  stripe (~> 5.7)
   turbolinks (~> 5)
   twitter-bootstrap-rails (~> 3.2)
   tzinfo-data

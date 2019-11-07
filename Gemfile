@@ -68,3 +68,7 @@ gem "hirb", "~> 0.7.3"
 gem "twitter-bootstrap-rails", "~> 3.2"
 
 gem "fog-aws", "~> 3.5"
+
+gem "encryption", "~> 1.1"
+
+gem "stripe", "~> 5.7"
