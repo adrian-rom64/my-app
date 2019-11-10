@@ -1,3 +1,8 @@
+<div class='jumbotron' style='text-align: center; margin-top: 50px'>
+  <h3>AWS S3 Bucket for Image storage in production</h3>
+  <h2>Images</h2>
+</div>
+
 <div class='table-container jumbotron'>
   <%- model_class = Image -%>
   <div class="page-header">
@@ -9,7 +14,7 @@
         <th><%= model_class.human_attribute_name(:id) %></th>
         <th><%= model_class.human_attribute_name(:title) %></th>
         <th><%= model_class.human_attribute_name(:file) %></th>
-        <th><%= model_class.human_attribute_name(:user_id) %></th>
+        <th><%= model_class.human_attribute_name(:user) %></th>
         <th><%= model_class.human_attribute_name(:created_at) %></th>
         <th><%=t '.actions', :default => t("helpers.actions") %></th>
       </tr>
@@ -20,7 +25,7 @@
           <td><%= link_to image.id, image_path(image) %></td>
           <td><%= image.title %></td>
           <td><%= image_tag(image.file_url) %></td>
-          <td><%= image.user_id %></td>
+          <td><%= image.user.email %></td>
           <td><%=l image.created_at %></td>
           <td>
             <%= link_to t('.edit', :default => t("helpers.links.edit")),

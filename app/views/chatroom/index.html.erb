@@ -1,0 +1,19 @@
+<div class='jumbotron' style='text-align: center; margin-top: 50px;' >
+  <h3>WebSockets protocol with ActionCable</h3>
+  <h2>Welcome, <%= current_user.email %></h2>
+</div>
+
+
+<div class="chatroom-container" id="messages">
+  <%= render @messages %>
+</div>
+<div class='message-input-box'>
+  <%= form_for(@message, html: {role: 'form', autocomplete: 'off'}, url: new_message_path, remote: true) do |f| %>
+    <%= f.text_field :content, placeholder: 'Your message', id: 'message-input', class: 'form-control', style: 'display: inline' %>
+    <%= f.button 'Send', class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<script>
+  $('#messages').scrollTop(200)
+</script>

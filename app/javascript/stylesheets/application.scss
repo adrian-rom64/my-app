@@ -17,3 +17,29 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+.chatroom-container {
+  width: 1000px;
+  border: solid #eee 2px;
+  box-shadow: 6px 6px #ddd;
+  border-radius: 6px;
+  margin: auto;
+  margin-top: 60px;
+  padding: 20px;
+  height: 800px;
+  overflow: hidden;
+}
+
+.message-input-box {
+  width: 1000px;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.message-input-box input {
+  width: 80%;
+}
+
+.message-input-box button {
+  width: 19%;
+}
