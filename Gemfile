@@ -72,3 +72,5 @@ gem "fog-aws", "~> 3.5"
 gem "encryption", "~> 1.1"
 
 gem "stripe", "~> 5.7"
+
+gem "redis", "~> 4.1"
