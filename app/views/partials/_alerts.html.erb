@@ -1,0 +1,14 @@
+<div class='alert-box'>
+  <% if flash.now[:danger] %>
+    <div class='alert alert-danger'><%= flash.now[:danger] %></div>
+  <% end %>
+  <% if flash.now[:success] %>
+    <div class='alert alert-success'><%= flash.now[:success] %></div>
+  <% end %>
+  <% if notice %>
+    <div class='alert alert-primary'><%= notice %></div>
+  <% end %>
+  <% if alert %>
+    <div class='alert alert-primary'><%= alert %></div>
+  <% end %>
+</div>

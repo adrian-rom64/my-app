@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, except: :index
 
   def index
     @images = Image.all
@@ -18,7 +19,8 @@ class ImagesController < ApplicationController
   def create
     @image = current_user.images.build(image_params)
     if @image.save
-      redirect_to @image, notice: 'Image was successfully created.'
+      flash[:success] = 'Image created'
+      redirect_to @image
     else
       render :new
     end
@@ -26,6 +28,7 @@ class ImagesController < ApplicationController
 
   def update
     if @image.update(image_params)
+      flash[:success] = 'Image updated'
       redirect_to @image, notice: 'Image was successfully updated.'
     else
       render :edit
@@ -34,6 +37,7 @@ class ImagesController < ApplicationController
 
   def destroy
     @image.destroy
+    flash[:success] = 'Image deleted'
     redirect_to images_url, notice: 'Image was successfully destroyed.'
   end
 

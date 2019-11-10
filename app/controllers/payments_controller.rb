@@ -1,4 +1,5 @@
 class PaymentsController < ApplicationController
+  before_action :require_login, except: :index
 
   def index
     @payments = Payment.all.reverse_order!
@@ -27,13 +28,15 @@ class PaymentsController < ApplicationController
   def cancel
     @payment = Payment.find(params[:id])
     @payment.update(status: 'cancelled')
-    redirect_to payments_path
+    flash[:danger] = 'Payment cancelled'
+    redirect_to root_path
   end
 
   def success
     @payment = Payment.find(params[:id])
     @payment.update(status: 'success')
-    redirect_to payments_path
+    flash[:success] = 'Payment completed'
+    redirect_to root_path
   end
 
   private

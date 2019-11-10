@@ -10,10 +10,7 @@ html
 
     body
       = render 'partials/navbar'
-      - if notice
-        p class='notice' =notice
-      - if alert
-        p class='alert' =alert
+      = render 'partials/alerts'
       =yield
-      .jumbotron style='text-align: center; margin-top: 50px'
+      .jumbotron class='header'
         h1 Footer

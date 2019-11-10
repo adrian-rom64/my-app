@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :require_login
+
   def create
     return if params[:message][:content] == ''
     message = current_user.messages.build(content: params[:message][:content])
