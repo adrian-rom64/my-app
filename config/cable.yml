@@ -1,10 +1,9 @@
+production:
+  adapter: redis
+  url: redis://redistogo:25363b1d29b5d6e0915d2d2404044fb7@tarpon.redistogo.com:10521/
+
 development:
   adapter: async
 
 test:
-  adapter: test
-
-production:
-  adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
-  channel_prefix: my_app_production
+  adapter: async
