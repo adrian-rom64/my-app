@@ -56,12 +56,11 @@ class PaymentsController < ApplicationController
         currency: 'usd',
         quantity: 1,
       }],
-      success_url: "http://localhost:3000/payments/success?id=#{payment.id}",
-      cancel_url: "http://localhost:3000/payments/cancel?id=#{payment.id}",
+      success_url: "#{request.base_url}/payments/success?id=#{payment.id}",
+      cancel_url: "#{request.base_url}/payments/cancel?id=#{payment.id}",
     )
-
     payment.update!(payment_id: session.id)
-    redirect_to "http://localhost:3000/payments/continue?session_id=#{session.id}"
+    redirect_to "#{request.base_url}/payments/continue?session_id=#{session.id}"
   end
 
 end
