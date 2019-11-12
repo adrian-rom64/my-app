@@ -1,0 +1,13 @@
+<div class='jumbotron' class='header'>
+  <h1>Contact form</h1>
+</div>
+
+<div class='table-container' style='padding: 50px'>
+  <%= form_with(url: '/send_email') do %>
+    <%= text_field_tag(:subject, '', class: 'form-control', placeholder: 'Subject') %>
+    <br>
+    <%= text_area_tag(:body, '', class: 'form-control', placeholder: 'Message') %>
+    <br>
+    <%= submit_tag('Send', class: 'btn btn-primary') %>
+  <% end %>
+</div>
