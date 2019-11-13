@@ -112,4 +112,6 @@ Rails.application.configure do
   config.web_socket_server_url = "wss://rails-app-adrian-2019.herokuapp.com/cable" 
   config.action_cable.allowed_request_origins = ['https://rails-app-adrian-2019.herokuapp.com', 'http://rails-app-adrian-2019.herokuapp.com']
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: "https://rails-app-adrian-2019.herokuapp.com" }
 end
