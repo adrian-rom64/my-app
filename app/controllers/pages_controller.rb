@@ -6,7 +6,12 @@ class PagesController < ApplicationController
   def contact_form
   end
   def send_email
-    FormMailer.with(subject: params[:subject], body: params[:body]).form_email(current_user).deliver_now
+    data = {
+      subject: params[:subject],
+      body: params[:body],
+      receiver: params[:receiver]
+    }
+    FormMailer.form_email(data).deliver_now
     flash[:success] = 'Email sent'
     redirect_to root_path
   end

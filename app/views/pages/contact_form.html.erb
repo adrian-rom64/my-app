@@ -4,6 +4,8 @@
 
 <div class='table-container' style='padding: 50px'>
   <%= form_with(url: '/send_email') do %>
+    <%= text_field_tag(:receiver, '', class: 'form-control', placeholder: 'Receiver') %>
+    <br>
     <%= text_field_tag(:subject, '', class: 'form-control', placeholder: 'Subject') %>
     <br>
     <%= text_area_tag(:body, '', class: 'form-control', placeholder: 'Message') %>
